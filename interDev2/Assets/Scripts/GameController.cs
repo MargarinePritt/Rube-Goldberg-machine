@@ -7,21 +7,19 @@ public class GameController : MonoBehaviour
 {
     private GameObject startObject;
     private Rigidbody2D startComponent;
-    private GameObject camera1;
+    private GameObject camera0;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         startObject=GameObject.Find("Circle");
         startComponent=startObject.GetComponent<Rigidbody2D>();
         startComponent.gravityScale=0;
-        camera1=GameObject.Find("Camera");
-        camera1.GetComponent<Camera>().enabled=false;
+        camera0=GameObject.Find("Camera");
+        camera0.GetComponent<Camera>().enabled=false;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         if(Input.GetKeyUp(KeyCode.Space)){
             startComponent.gravityScale=1;
         }
@@ -32,7 +30,7 @@ public class GameController : MonoBehaviour
             GameObject middleObject=GameObject.FindWithTag("middleObject");
             middleObject.GetComponent<Rigidbody2D>().gravityScale=1;
             Camera.main.enabled=false;
-            camera1.GetComponent<Camera>().enabled=true;
+            camera0.GetComponent<Camera>().enabled=true;
         }
     }
 }
